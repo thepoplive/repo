@@ -5,13 +5,13 @@ Codename: stable
 Version: 1.0
 Architectures: iphoneos-arm
 Description: Tweaks and apps for legacy iOS 6-8 by thepoplive
-Date: Sun, 08 Nov 2026 08:51:59 +0000
+Date: Sun, 08 Nov 2026 08:58:58 +0000
 MD5Sum:
  7aec113b67ee4c89f4278bc6bd095fa0      824 Packages
- 79f187e20855de266a013245b1333443      491 Packages.gz
+ 96cfe2713b2d6dbd914e2c71d8db2161      491 Packages.gz
 SHA1:
  5ffb734ed15b462dec2672a7b28416517e686181      824 Packages
- 62d03dead9377792d05372c49e293ccf0f807c19      491 Packages.gz
+ eadcb81e1335173103a4eeee95ac26e08173aeaa      491 Packages.gz
 SHA256:
  aa7dd6d2490a79554cf5f611c62898eb4c49c76cdebde89b88369f3b52fc3e34      824 Packages
- 1dfa203027313eee6f8b421646a6fed3281db9d687d84f13ce53d2b0a67c2341      491 Packages.gz
+ 83ef12081d60878df61423d9171634329b928382bef846195915990e241374f8      491 Packages.gz
