@@ -1,0 +1,37 @@
+name: rebuild-index
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: rebuild
+  cancel-in-progress: true
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dpkg tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq dpkg-dev
+
+      - name: Regenerate index files
+        run: python3 Scripts/gen_repo.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "repo-bot"
+          git config user.email "actions@github.com"
+          git add Packages Packages.gz Release packages.json
+          if git diff --cached --quiet; then
+            echo "Index up to date"
+          else
+            git commit -m "chore: rebuild repo index [skip ci]"
+            git push
+          fi

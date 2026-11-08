@@ -1,0 +1,17 @@
+Origin: thepoplive repo
+Label: thepoplive repo
+Suite: stable
+Codename: stable
+Version: 1.0
+Architectures: iphoneos-arm
+Description: Tweaks and apps for legacy iOS 6-8 by thepoplive
+Date: Sun, 08 Nov 2026 11:51:34 +0300
+MD5Sum:
+ 7aec113b67ee4c89f4278bc6bd095fa0      824 Packages
+ 9ed5380aad9cb573ef74543618856156      491 Packages.gz
+SHA1:
+ 5ffb734ed15b462dec2672a7b28416517e686181      824 Packages
+ ce3ea95fa9c1185bce49d67b0b13a94e50b1b552      491 Packages.gz
+SHA256:
+ aa7dd6d2490a79554cf5f611c62898eb4c49c76cdebde89b88369f3b52fc3e34      824 Packages
+ 98c171d4ff89a11f0865c2aad7a2453d40b7269eeea154bc9f5c34124f169f5a      491 Packages.gz

@@ -1,0 +1,22 @@
+{
+  "packages": [
+    {
+      "package": "com.legacyui.tweak",
+      "name": "LegacyUI",
+      "version": "0.2.4",
+      "description": "Liquid Glass inspired system interface redesign for iOS 6-8",
+      "section": "Tweaks",
+      "filename": "debs/LegacyUI_0.2.4_iphoneos-arm.deb",
+      "size": 31684
+    },
+    {
+      "package": "com.thepoplive.phonepod",
+      "name": "PhonePod",
+      "version": "0.4.0",
+      "description": "iPod style app for iOS 6-8",
+      "section": "Applications",
+      "filename": "debs/PhonePod_0.4.0_iphoneos-arm.deb",
+      "size": 57732
+    }
+  ]
+}

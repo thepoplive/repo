@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>thepoplive repo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    background: #0b0d12 radial-gradient(1000px 500px at 50% -10%, rgba(60,90,160,.25), transparent 60%);
+    color: #eef1f7;
+    padding: 24px 16px 60px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .card {
+    width: 100%; max-width: 560px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    padding: 26px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.45);
+  }
+  .profile { text-align: center; }
+  .avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.35);
+    box-shadow: 0 6px 24px rgba(0,0,0,.5);
+  }
+  .username { margin-top: 12px; font-size: 22px; font-weight: 700; letter-spacing: .3px; }
+  .repolink {
+    display: inline-block; margin-top: 6px;
+    color: #7db3ff; text-decoration: none; font-size: 14px; opacity: .9;
+  }
+  .repolink:hover { text-decoration: underline; }
+  .desc { margin-top: 10px; font-size: 13px; color: #aab3c5; }
+
+  .addheader { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: #8f9ab0; margin-bottom: 12px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    flex: 1 1 30%;
+    min-width: 130px;
+    display: block; text-align: center;
+    padding: 13px 10px; border-radius: 13px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    border: 1px solid rgba(255,255,255,.18);
+    transition: transform .12s ease, background .12s ease;
+    color: #fff;
+  }
+  .btn:active { transform: scale(.96); }
+  .btn.cydia { background: linear-gradient(180deg, #4a5f2f, #38511e); }
+  .btn.sileo { background: linear-gradient(180deg, #5b2f8f, #462271); }
+  .btn.zebra { background: linear-gradient(180deg, #1f2c48, #16213a); }
+  .btn.copy  { background: linear-gradient(180deg, #2c3344, #202636); }
+  .urlbox {
+    margin-top: 14px;
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px; color: #9fb7e8;
+    word-break: break-all;
+    user-select: all; -webkit-user-select: all;
+  }
+  .note { margin-top: 10px; font-size: 11px; color: #77839a; }
+
+  h2.section { width: 100%; max-width: 560px; font-size: 15px; font-weight: 700; color: #c8d2e4; margin: 14px 4px 10px; }
+  .pkg {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .pkg .info { min-width: 0; }
+  .pkg .name { font-size: 17px; font-weight: 700; }
+  .pkg .meta { font-size: 12px; color: #939db3; margin-top: 3px; }
+  .pkg .desc { font-size: 13px; color: #c3cadb; margin-top: 6px; }
+  .install {
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #2b6fd6, #1e54ac);
+    color: #fff; text-decoration: none;
+    padding: 10px 16px; border-radius: 11px;
+    font-size: 13px; font-weight: 700;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  .install:active { transform: scale(.95); }
+  .badge {
+    display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+    background: rgba(125,179,255,.15); color: #7db3ff;
+    border-radius: 6px; padding: 2px 7px; margin-left: 8px; vertical-align: middle;
+  }
+  footer { margin-top: 26px; font-size: 11px; color: #5d6880; }
+</style>
+</head>
+<body>
+  <div class="card profile">
+    <img class="avatar" src="https://github.com/thepoplive.png" alt="avatar">
+    <div class="username">@thepoplive</div>
+    <a class="repolink" href="https://github.com/thepoplive/repo" target="_blank" rel="noopener">github.com/thepoplive/repo</a>
+    <div class="desc">Tweaks &amp; apps for legacy iOS 6 &ndash; 8</div>
+  </div>
+
+  <div class="card">
+    <div class="addheader">Add repository</div>
+    <div class="buttons">
+      <a class="btn cydia" id="btn-cydia" href="#">Cydia</a>
+      <a class="btn sileo" id="btn-sileo" href="#">Sileo</a>
+      <a class="btn zebra" id="btn-zebra" href="#">Zebra</a>
+      <a class="btn copy" id="btn-copy" href="#">Copy URL</a>
+    </div>
+    <div class="urlbox" id="repourl"></div>
+    <div class="note">Open this page in Safari on your jailbroken device to add the source directly.</div>
+  </div>
+
+  <h2 class="section">Packages</h2>
+  <div id="packages"></div>
+
+  <footer>thepoplive repo &middot; built for legacy iPhones</footer>
+
+<script>
+(function () {
+  var repoURL = location.origin + location.pathname;
+  document.getElementById('repourl').textContent = repoURL;
+  document.getElementById('btn-cydia').href =
+    'cydia://url/https://cydia.saurik.com/api/share#?source=' + encodeURIComponent(repoURL);
+  document.getElementById('btn-sileo').href = 'sileo://source/' + repoURL;
+  document.getElementById('btn-zebra').href = 'zbra://sources/add/' + repoURL;
+
+  document.getElementById('btn-copy').addEventListener('click', function (e) {
+    e.preventDefault();
+    var done = function () { e.target.textContent = 'Copied!'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(repoURL).then(done, done);
+    } else {
+      var r = document.createRange();
+      r.selectNode(document.getElementById('repourl'));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      done();
+    }
+  });
+
+  function humanSize(bytes) {
+    if (bytes > 1048576) return (bytes / 1048576).toFixed(1) + ' MB';
+    return Math.round(bytes / 1024) + ' KB';
+  }
+
+  fetch('packages.json', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var host = document.getElementById('packages');
+      data.packages.forEach(function (p) {
+        var card = document.createElement('div');
+        card.className = 'card pkg';
+        var info = document.createElement('div');
+        info.className = 'info';
+        var name = document.createElement('div');
+        name.className = 'name';
+        name.textContent = p.name;
+        var badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = p.section;
+        name.appendChild(badge);
+        var meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = p.version + ' \u00b7 ' + humanSize(p.size) + ' \u00b7 ' + p.package;
+        var desc = document.createElement('div');
+        desc.className = 'desc';
+        desc.textContent = p.description;
+        info.appendChild(name); info.appendChild(meta); info.appendChild(desc);
+        var install = document.createElement('a');
+        install.className = 'install';
+        install.textContent = 'Install';
+        install.href = 'cydia://url/https://cydia.saurik.com/api/share#?source='
+          + encodeURIComponent(repoURL) + '&package=' + encodeURIComponent(p.package);
+        card.appendChild(info); card.appendChild(install);
+        host.appendChild(card);
+      });
+    })
+    .catch(function () {
+      var host = document.getElementById('packages');
+      host.textContent = 'Failed to load packages.json';
+    });
+})();
+</script>
+</body>
+</html>

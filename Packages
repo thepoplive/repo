@@ -1,0 +1,24 @@
+Package: com.legacyui.tweak
+Name: LegacyUI
+Version: 0.2.4
+Architecture: iphoneos-arm
+Description: Liquid Glass inspired system interface redesign for iOS 6-8
+Maintainer: LegacyUI Developer
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader (>= 2.0), firmware (>= 6.0)
+Filename: debs/LegacyUI_0.2.4_iphoneos-arm.deb
+Size: 31684
+MD5sum: 84308f44e372d4ee7166ecc5f6f49586
+SHA256: 997df7d0dc63d75f04a73f1b93edda7f038906b299e97aad541aee89938269aa
+Package: com.thepoplive.phonepod
+Name: PhonePod
+Version: 0.4.0
+Architecture: iphoneos-arm
+Description: iPod style app for iOS 6-8
+Maintainer: thepoplive
+Section: Applications
+Depends: firmware (>= 6.0)
+Filename: debs/PhonePod_0.4.0_iphoneos-arm.deb
+Size: 57732
+MD5sum: fbe6df4af6593ec2c20ca5dc4d506f15
+SHA256: 60edb806da0b25bce3c10b9d492817890510a9b532781f2d0e7de1be14606980
