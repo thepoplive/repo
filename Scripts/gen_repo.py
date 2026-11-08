@@ -17,6 +17,12 @@ SUITE = "stable"
 ARCHS = "iphoneos-arm"
 DESCRIPTION = "Tweaks and apps for legacy iOS 6-8 by thepoplive"
 
+# package id -> source repository, shown as "Open in GitHub" on the site
+GITHUB_REPOS = {
+    "com.legacyui.tweak": "https://github.com/thepoplive/LegacyUI",
+    "com.thepoplive.phonepod": "https://github.com/thepoplive/PhonePod",
+}
+
 
 def control_fields(deb):
     out = subprocess.check_output(["dpkg-deb", "-f", deb]).decode()
@@ -74,6 +80,9 @@ for name in deb_files:
         "filename": entry.get("Filename", ""),
         "size": size,
     })
+    github_url = GITHUB_REPOS.get(entry.get("Package", ""))
+    if github_url:
+        catalog[-1]["github"] = github_url
 
 packages_data = "\n".join(packages_entries) + "\n"
 with open(os.path.join(ROOT, "Packages"), "w") as f:
